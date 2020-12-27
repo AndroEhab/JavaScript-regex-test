@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>regex test</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <header id="header">
+        <h1 id="title"><span id="javascript">JAVASCRIPT</span> REGEX TEST</h1>
+    </header>
+    <div id="container">
+        <main id="main-container">
+            <form>
+                <label for="regex">REGULAR EXPRESSION<span id="copy"><i class="fas fa-copy fa-lg"></i><span id="copy-message">copy this regex</span></span></label>
+                <span id="regex-container">
+                    <input type="text" id="regex" class="toggle-copy-message" name="regex">
+                </span>
+                <input type="text" id="flag" class="toggle-copy-message" name="flag">
+                <label for="string">STRING</label>
+                <textarea type="text" id="string" name="string"></textarea>
+                <label for="result">RESULT</label>
+                <textarea type="text" id="result" name="result" readonly disabled></textarea>
+                <div id="count-matches" class="hidden"></div>
+                
+            </form>
+        </main>
+        <aside id="cheatsheet">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Flags</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">i</a></td>
+                        <td>Perform case-insensitive matching</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">g</a></td>
+                        <td>Perform a global match</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">m</a></td>
+                        <td>Perform multiline matching</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Brackets</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">[abc]</a></td>
+                        <td>Find any character between the brackets</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">[^abc]</a></td>
+                        <td>Find any character NOT between the brackets</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">[0-9]</a></td>
+                        <td>Find any character between the brackets (any digit)</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">[^0-9]</a></td>
+                        <td>Find any character NOT between the brackets (any non-digit)</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">(x|y)</a></td>
+                        <td>Find any of the alternatives specified</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Metacharacters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">.</a></td>
+                        <td>Find a single character</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">\w</a></td>
+                        <td>Find a word character</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">\W</a></td>
+                        <td>Find a non-word character</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">\d</a></td>
+                        <td>Find a digit</td>
+                    </tr>
+                    <tr>
+                        <td><a href="">\D</a></td>
+                        <td>Find a non-digit character</td>
+                    </tr>
+                    <tr>
+                        <td><a href="">\s</a></td>
+                        <td>Find a whitespace character</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">\S</a></td>
+                        <td>Find a non-whitespace character</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">\b</a></td>
+                        <td>Find a match at the beginning/end of a word</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">\B</a></td>
+                        <td>Find a match not at the beginning/end of a word</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">\0</a></td>
+                        <td>Find a NUL character</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">\n</a></td>
+                        <td>Find a new line character</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">\f</a></td>
+                        <td>Find a form feed character</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">\r</a></td>
+                        <td>Find a carriage return character</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">\t</a></td>
+                        <td>Find a tab character</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">\v</a></td>
+                        <td>Find a vertical tab character</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">\xxx</a></td>
+                        <td>Find the character specified by an octal number xxx</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">\xdd</a></td>
+                        <td>Find the character specified by a hexadecimal number dd</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">\uxxxx</a></td>
+                        <td>Find the Unicode character specified by a hexadecimal number xxxx</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Quantifier</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">n+</a></td>
+                        <td>Matches any string that contains at least one <em>n</em></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">n*</a></td>
+                        <td>Matches any string that contains zero or more occurrences of <em>n</em></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">n?</a></td>
+                        <td>Matches any string that contains zero or one occurrences of <em>n</em></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">n{X}</a></td>
+                        <td>Matches any string that contains a sequence of <i>X</i> <i>n</i>'s</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">n{X,Y}</a></td>
+                        <td>Matches any string that contains a sequence of X to Y <i>n</i>'s</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">n{X,}</a></td>
+                        <td>Matches any string that contains a sequence of at least X <i>n</i>'s</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">n$</a></td>
+                        <td>Matches any string with <em>n</em> at the end of it</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">^n</a></td>
+                        <td>Matches any string with <em>n</em> at the beginning of it</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">?=n</a></td>
+                        <td>Matches any string that is followed by a specific string <em>n</em></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">?!n</a></td>
+                        <td>Matches any string that is not followed by a specific string <em>n</em></td>
+                    </tr>
+                </tbody>
+            </table>
+</aside>
+        <footer>
+            <div id="footer">
+                <small>Created By <a href="https://github.com/AndroEhab">AndroEhab</a></small>
+            </div>
+        </footer>
+    </div>
+        <script src="script.js"></script>
+</body>
+</html>
